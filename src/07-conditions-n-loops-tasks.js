@@ -417,7 +417,6 @@ function getCommonDirectoryPath(/* pathes */) {
     if (start[0] === '') return '';
     for (let j = 0; j < pathes.length; j += 1) {
       if (start[i] === ) {
-         
       }
     }
   }
