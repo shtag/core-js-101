@@ -573,6 +573,12 @@ function selectMany(arr, childrenSelector) {
  */
 function getElementByIndexes(/* arr, indexes */) {
   throw new Error('Not implemented');
+  /* const index = indexes.shift();
+  if (typeof arr[index] !== 'number') {
+    const first = getElementByIndexes(arr[index], indexes);
+    if
+  }
+  return arr[index]; */
 }
 
 

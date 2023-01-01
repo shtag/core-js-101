@@ -166,8 +166,10 @@ function doRectanglesOverlap(/* rect1, rect2 */) {
  *   { center: { x:0, y:0 }, radius:10 },  { x:10, y:10 }   => false
  *
  */
-function isInsideCircle(/* circle, point */) {
-  throw new Error('Not implemented');
+function isInsideCircle(circle, point) {
+  const left = ((point.x - circle.center.x) ** 2) + ((point.y - circle.center.y) ** 2);
+  if (left < circle.radius ** 2) return true;
+  return false;
 }
 
 
@@ -479,6 +481,27 @@ function getMatrixProduct(/* m1, m2 */) {
  */
 function evaluateTicTacToePosition(/* position */) {
   throw new Error('Not implemented');
+  /* let result;
+  for (let i = 0; i < 3; i += 1) {
+    let hor = '';
+    let ver = '';
+    for (let j = 0; j < 3; j += 1) {
+      hor += position[i][j];
+      if (i === j) ver += position[i][j];
+    }
+    if ((hor || ver) === ('XXX')) result = 'X';
+    if ((hor || ver) === ('000')) result = '0';
+  }
+  if ((position[0][0] + position[1][1] + position[2][2]
+     || position[2][2] + position[1][1] + position[0][0]) === 'XXX') {
+    result = 'X';
+  }
+  if ((position[0][0] + position[1][1] + position[2][2]
+     || position[2][2] + position[1][1] + position[0][0]) === '000') {
+    result = '0';
+  }
+  if (result) return result;
+  return undefined; */
 }
 
 
