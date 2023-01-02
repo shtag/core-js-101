@@ -179,16 +179,12 @@ function partialUsingArguments(/* fn, ...args1 */) {
  *   getId4() => 7
  *   getId10() => 11
  */
-function getIdGeneratorFunction(/* startFrom */) {
-  /* return () => {
-    if (this.num || this.num === 0) {
-      this.num += 1;
-      return this.num;
-    }
-    this.num = startFrom;
-    return this.num;
-  }; */
-  throw new Error('Not implemented');
+function getIdGeneratorFunction(startFrom) {
+  let id = startFrom - 1;
+  return () => {
+    id += 1;
+    return id;
+  };
 }
 
 
