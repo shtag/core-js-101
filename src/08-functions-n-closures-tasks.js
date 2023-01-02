@@ -153,7 +153,7 @@ function logger(/* func, logFunc */) {
  *   partialUsingArguments(fn, 'a','b','c','d')() => 'abcd'
  */
 function partialUsingArguments(/* fn, ...args1 */) {
-  // throw new Error('Not implemented');
+  throw new Error('Not implemented');
   /* const args = Array.prototype.slice.call(args1, 1, args1.length);
   return () => {
     const moreArgs = args.concat(Array.prototype.slice.call(args1));
@@ -183,7 +183,6 @@ function getIdGeneratorFunction(/* startFrom */) {
   /* return () => {
     if (this.num || this.num === 0) {
       this.num += 1;
-      console.log(this.num);
       return this.num;
     }
     this.num = startFrom;

@@ -410,19 +410,13 @@ function toNaryString(num, n) {
  *   ['/web/assets/style.css', '/.bin/mocha',  '/read.me'] => '/'
  *   ['/web/favicon.ico', '/web-scripts/dump', '/verbalizer/logs'] => '/'
  */
-function getCommonDirectoryPath(/* pathes */) {
-  throw new Error('Not implemented');
-  /* let path = [];
-  for (let i = 0; i < pathes.length; i += 1) {
-    let count = 0;
-    const start = pathes[i].split('/');
-    if (start[0] === '') return '';
-    for (let j = 0; j < pathes.length; j += 1) {
-      if (start[i] === ) {
-      }
-    }
+function getCommonDirectoryPath(pathes) {
+  let i = 0;
+  // eslint-disable-next-line no-loop-func
+  while (pathes.every((path) => path[i] === pathes[0][i])) {
+    i += 1;
   }
-  return ''; */
+  return pathes[0].slice(0, i).replace(/[^/]+$/, '');
 }
 
 
@@ -444,8 +438,21 @@ function getCommonDirectoryPath(/* pathes */) {
  *                         [ 6 ]]
  *
  */
-function getMatrixProduct(/* m1, m2 */) {
-  throw new Error('Not implemented');
+function getMatrixProduct(m1, m2) {
+  const m1NumRows = m1.length;
+  const m1NumCols = m1[0].length;
+  const m2NumCols = m2[0].length;
+  const m = new Array(m1NumRows);// initialize array of rows
+  for (let r = 0; r < m1NumRows; r += 1) {
+    m[r] = new Array(m2NumCols); // initialize the current row
+    for (let c = 0; c < m2NumCols; c += 1) {
+      m[r][c] = 0;// initialize the current cell
+      for (let i = 0; i < m1NumCols; i += 1) {
+        m[r][c] += m1[r][i] * m2[i][c];
+      }
+    }
+  }
+  return m;
 }
 
 
